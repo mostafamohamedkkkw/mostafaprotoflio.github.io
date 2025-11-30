@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أعمالي - مصطفى</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #ffffff;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 70px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .main-title {
+            font-size: 64px;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            color: #b8b8d1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease 0.2s both;
+        }
+
+        .filter-tab {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-tab:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            animation: fadeIn 1s ease 0.4s both;
+        }
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .portfolio-item.hidden {
+            display: none;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '🎨';
+            font-size: 60px;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .portfolio-item:hover .portfolio-image::before {
+            transform: scale(1.2) rotate(10deg);
+            transition: all 0.3s ease;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 59, 92, 0.9);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 80px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .main-title {
+                font-size: 42px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .filter-tabs {
+                gap: 10px;
+            }
+
+            .filter-tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .portfolio-image {
+                height: 220px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container"><!-- Header Section -->
+   <div class="header-section">
+    <h1 class="main-title" id="mainTitle">أعمالي</h1>
+    <p class="subtitle" id="subtitle">مجموعة من  أعمالي في التصميم، الإعلانات بالذكاء الاصطناعي، .</p>
+   </div><!-- Filter Tabs -->
+   <div class="filter-tabs"><button class="filter-tab active" data-category="all">الكل</button> <button class="filter-tab" data-category="ai-ads">AI Ads</button> <button class="filter-tab" data-category="graphic">Graphic Design</button> 
+   </div><!-- Portfolio Grid -->
+   <div class="portfolio-grid" id="portfolioGrid"><!-- AI Ads Projects -->
+
+
+    <div class="portfolio-item" data-category="ai-ads">
+                   <video width="100%" height="100%" controls>
+  <source src="video.mp4" type="video/mp4">
+ 
+</video>
+     <div class="portfolio-content">
+
+      <h3 class="portfolio-title">إعلان AI تفاعلي</h3><span class="portfolio-category">AI Ads</span>
+
+     </div>
+    </div>
+
+    
+    <div class="portfolio-item" data-category="ai-ads">
+
+              <video width="100%" height="100%" controls>
+  <source src="video2.mp4" type="video/mp4">
+ 
+</video>
+
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">حملة AI إبداعية</h3><span class="portfolio-category">AI Ads</span>
+     </div>
+    </div><!-- Graphic Design Projects -->
+    
+    
+    <div class="portfolio-item" data-category="ai-ads">
+                   <video width="100%" height="100%" controls>
+  <source src="video3.mp4" type="video/mp4">
+ 
+</video>
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">اعلان cgi بالذكاء الاصطناعي  </h3><span class="portfolio-category">AI</span>
+     </div>
+    </div>
+
+
+    <div class="portfolio-item" data-category="ai-ads">
+                         <video width="100%" height="100%" controls>
+  <source src="video4.mp4" type="video/mp4">
+ 
+</video>
+     
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">بوستر إعلاني</h3><span class="portfolio-category">Graphic Design</span>
+     </div>
+    </div>
+
+
+
+      <div class="portfolio-item" data-category="ai-ads">
+                   <video width="100%" height="100%" controls>
+  <source src="video5.mp4" type="video/mp4">
+ 
+</video>
+     <div class="portfolio-content">
+
+      <h3 class="portfolio-title">إعلان AI تفاعلي</h3><span class="portfolio-category">AI Ads</span>
+
+     </div>
+    </div>
+
+
+
+      <div class="portfolio-item" data-category="ai-ads">
+                   <video width="100%" height="100%" controls>
+  <source src="video6.mp4" type="video/mp4">
+ 
+</video>
+     <div class="portfolio-content">
+
+      <h3 class="portfolio-title">إعلان AI تفاعلي</h3><span class="portfolio-category">AI Ads</span>
+
+     </div>
+    </div>
+
+
+
+      <div class="portfolio-item" data-category="ai-ads">
+                   <video width="100%" height="100%" controls>
+  <source src="video7.mp4" type="video/mp4">
+ 
+</video>
+     <div class="portfolio-content">
+
+      <h3 class="portfolio-title">إعلان AI تفاعلي</h3><span class="portfolio-category">AI Ads</span>
+
+     </div>
+    </div>
+
+
+      <div class="portfolio-item" data-category="ai-ads">
+                   <video width="100%" height="100%" controls>
+  <source src="video8.mp4" type="video/mp4">
+ 
+</video>
+     <div class="portfolio-content">
+
+      <h3 class="portfolio-title">إعلان AI تفاعلي</h3><span class="portfolio-category">AI Ads</span>
+
+     </div>
+    </div>
+
+    
+    <div class="portfolio-item" data-category="graphic">
+     <img src="photo (3).png" alt="">
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">تصميم سوشيال ميديا</h3><span class="portfolio-category">Graphic Design</span>
+     </div>
+    </div><!-- Montage Projects -->
+   <div class="portfolio-item" data-category="graphic">
+     <img src="photo (2).png" alt="">
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">تصميم سوشيال ميديا</h3><span class="portfolio-category">Graphic Design</span>
+     </div>
+    </div><!-- Montage Projects -->
+
+
+     <div class="portfolio-item" data-category="graphic">
+     <img src="photo (1).png" alt="">
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">تصميم سوشيال ميديا</h3><span class="portfolio-category">Graphic Design</span>
+     </div>
+    </div><!-- Montage Projects -->
+
+    
+   <div class="portfolio-item" data-category="graphic">
+     <img src="photo.png" alt="">
+     <div class="portfolio-content">
+      <h3 class="portfolio-title">تصميم سوشيال ميديا</h3><span class="portfolio-category">Graphic Design</span>
+     </div>
+    </div><!-- Montage Projects -->
+
+
+
+   
+    
+   </div><!-- CTA Section -->
+   <div class="cta-section"><a href="contact.html" class="cta-button" id="ctaButton">اطلب عملك الآن</a>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            main_title: "أعمالي",
+            subtitle: "مجموعة من أفضل أعمالي في التصميم، الإعلانات بالذكاء الاصطناعي، المونتاج، والمشاريع المصوّرة.",
+            cta_text: "اطلب عملك الآن",
+            background_color: "#0f0c29",
+            primary_color: "#667eea",
+            text_color: "#ffffff",
+            card_color: "rgba(255, 255, 255, 0.05)",
+            accent_color: "#764ba2"
+        };
+
+        async function onConfigChange(config) {
+            const mainTitle = document.getElementById('mainTitle');
+            const subtitle = document.getElementById('subtitle');
+            const ctaButton = document.getElementById('ctaButton');
+
+            if (mainTitle) {
+                mainTitle.textContent = config.main_title || defaultConfig.main_title;
+            }
+
+            if (subtitle) {
+                subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+            }
+
+            if (ctaButton) {
+                ctaButton.textContent = config.cta_text || defaultConfig.cta_text;
+            }
+
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const cardColor = config.card_color || defaultConfig.card_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+
+            document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, #302b63 50%, #24243e 100%)`;
+
+            if (mainTitle) {
+                mainTitle.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+                mainTitle.style.webkitBackgroundClip = 'text';
+                mainTitle.style.webkitTextFillColor = 'transparent';
+                mainTitle.style.backgroundClip = 'text';
+            }
+
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            portfolioItems.forEach(item => {
+                item.style.background = cardColor;
+            });
+
+            const filterTabsActive = document.querySelectorAll('.filter-tab.active');
+            filterTabsActive.forEach(tab => {
+                tab.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+            });
+
+            if (ctaButton) {
+                ctaButton.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+            }
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.card_color || defaultConfig.card_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.card_color = value;
+                                window.elementSdk.setConfig({ card_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.primary_color = value;
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.config.accent_color = value;
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["subtitle", config.subtitle || defaultConfig.subtitle],
+                ["cta_text", config.cta_text || defaultConfig.cta_text]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Filter Functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                portfolioItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Portfolio Item Click Handler
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('project-detail.html', '_blank', 'noopener,noreferrer');
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a555bc664730cd2',t:'MTc2NDI4NTY1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

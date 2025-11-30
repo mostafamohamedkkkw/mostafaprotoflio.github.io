@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل مع مصطفى</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100%;
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .contact-wrapper {
+            width: 100%;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0 0 1rem 0;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: #718096;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-card {
+            background: #f7fafc;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            color: #a0aec0;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            color: #2d3748;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .social-link.tiktok {
+            background: linear-gradient(135deg, #000000 0%, #69C9D0 100%);
+        }
+
+        .social-link.facebook {
+            background: linear-gradient(135deg, #4267B2 0%, #3b5998 100%);
+        }
+
+        .social-link:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 3rem;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-form {
+            background: #f7fafc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0 0 1.5rem 0;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="contact-wrapper">
+   <div class="contact-container">
+    <div class="header">
+     <h1 class="main-title" id="mainTitle">تواصل مع مصطفى</h1>
+     <p class="subtitle" id="subtitle">متاح للمشاريع الإعلانية، الجرافيك، المونتاج، وحلول الذكاء الاصطناعي.</p>
+    </div>
+    <div class="contact-methods">
+     <div class="contact-card">
+      <div class="contact-icon">
+       📱
+      </div>
+      <div class="contact-label">
+       الهاتف
+      </div>
+      <div class="contact-value" id="phoneNumber">
+       01032375981
+      </div>
+     </div>
+     <div class="contact-card">
+      <div class="contact-icon">
+       ✉️
+      </div>
+      <div class="contact-label">
+       البريد الإلكتروني
+      </div>
+      <div class="contact-value" id="emailAddress">
+       mm4996877@gmail.com
+      </div>
+     </div>
+    </div>
+    <div class="social-links"><a href="https://wa.me/201032375981" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="واتساب">
+      <svg width="32" height="32" viewbox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg></a> <a href="https://www.tiktok.com/@mostafa.mohamedai?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="تيك توك">
+      <svg width="32" height="32" viewbox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+      </svg></a> <a href="https://www.facebook.com/mostafa.mohmed.5205/" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="فيسبوك">
+      <svg width="32" height="32" viewbox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg></a>
+    </div><a href="https://wa.me/201032375981" target="_blank" rel="noopener noreferrer" class="cta-button" id="ctaButton"> ابدأ المحادثة الآن </a>
+    <div class="contact-form">
+     <h2 class="form-title" id="formTitle">أو راسلني مباشرة</h2>
+     <div class="success-message" id="successMessage">
+      ✓ تم إرسال رسالتك بنجاح! سأتواصل معك قريباً
+     </div>
+     <form id="contactForm">
+      <div class="form-group"><label for="name" class="form-label">الاسم</label> <input type="text" id="name" class="form-input" placeholder="أدخل اسمك" required>
+      </div>
+      <div class="form-group"><label for="email" class="form-label">البريد الإلكتروني</label> <input type="email" id="email" class="form-input" placeholder="example@email.com" required>
+      </div>
+      <div class="form-group"><label for="message" class="form-label">الرسالة</label> <textarea id="message" class="form-textarea" placeholder="اكتب رسالتك هنا..." required></textarea>
+      </div><button type="submit" class="submit-button" id="submitButton"> إرسال الرسالة </button>
+     </form>
+    </div>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            main_title: "تواصل مع مصطفى",
+            subtitle: "متاح للمشاريع الإعلانية، الجرافيك، المونتاج، وحلول الذكاء الاصطناعي.",
+            phone_number: "01032375981",
+            email_address: "mm4996877@gmail.com",
+            cta_button: "ابدأ المحادثة الآن",
+            form_title: "أو راسلني مباشرة",
+            background_color: "#667eea",
+            surface_color: "#ffffff",
+            text_color: "#2d3748",
+            primary_action_color: "#25D366",
+            secondary_action_color: "#667eea"
+        };
+
+        async function onConfigChange(config) {
+            document.getElementById('mainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
+            document.getElementById('phoneNumber').textContent = config.phone_number || defaultConfig.phone_number;
+            document.getElementById('emailAddress').textContent = config.email_address || defaultConfig.email_address;
+            document.getElementById('ctaButton').textContent = config.cta_button || defaultConfig.cta_button;
+            document.getElementById('formTitle').textContent = config.form_title || defaultConfig.form_title;
+
+            const bgColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+            document.body.style.background = `linear-gradient(135deg, ${bgColor} 0%, ${secondaryColor} 100%)`;
+            document.querySelector('.contact-container').style.background = `rgba(${hexToRgb(surfaceColor)}, 0.98)`;
+            document.querySelector('.main-title').style.color = textColor;
+            
+            const ctaBtn = document.querySelector('.cta-button');
+            ctaBtn.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${darkenColor(primaryColor, 20)} 100%)`;
+            
+            const submitBtn = document.querySelector('.submit-button');
+            submitBtn.style.background = `linear-gradient(135deg, ${secondaryColor} 0%, ${darkenColor(secondaryColor, 20)} 100%)`;
+        }
+
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '255, 255, 255';
+        }
+
+        function darkenColor(hex, percent) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const amt = Math.round(2.55 * percent);
+            const R = Math.max((num >> 16) - amt, 0);
+            const G = Math.max((num >> 8 & 0x00FF) - amt, 0);
+            const B = Math.max((num & 0x0000FF) - amt, 0);
+            return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["main_title", config.main_title || defaultConfig.main_title],
+                    ["subtitle", config.subtitle || defaultConfig.subtitle],
+                    ["phone_number", config.phone_number || defaultConfig.phone_number],
+                    ["email_address", config.email_address || defaultConfig.email_address],
+                    ["cta_button", config.cta_button || defaultConfig.cta_button],
+                    ["form_title", config.form_title || defaultConfig.form_title]
+                ])
+            });
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submitButton');
+            const successMessage = document.getElementById('successMessage');
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'جاري الإرسال...';
+            
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                submitButton.disabled = false;
+                submitButton.textContent = 'إرسال الرسالة';
+                
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+                
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5548fa13bf0cd2',t:'MTc2NDI4NDg4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

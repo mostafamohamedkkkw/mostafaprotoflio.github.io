@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدماتي - مصطفى</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100%;
+      width: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .main-container {
+      width: 100%;
+      min-height: 100vh;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 800px;
+    }
+
+    .main-title {
+      font-size: 56px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #f0f0f0;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+    }
+
+    .service-icon svg {
+      width: 45px;
+      height: 45px;
+    }
+
+    .service-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 0 0 15px 0;
+    }
+
+    .service-description {
+      font-size: 17px;
+      color: #4a5568;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffffff;
+      color: #667eea;
+      padding: 18px 50px;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background: #f7fafc;
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 40px 20px;
+      }
+
+      .main-title {
+        font-size: 42px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .service-card {
+        padding: 35px 25px;
+      }
+
+      .service-title {
+        font-size: 24px;
+      }
+
+      .service-description {
+        font-size: 16px;
+      }
+
+      .cta-button {
+        padding: 16px 40px;
+        font-size: 18px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="main-container">
+   <div class="header-section">
+    <h1 class="main-title">خدماتي</h1>
+    <p class="subtitle">مجموعة من الخدمات الإبداعية التي أقدمها في عالم التصميم، الذكاء الاصطناعي، والإنتاج الإعلاني.</p>
+   </div>
+   <div class="services-grid">
+    <div class="service-card">
+     <div class="service-icon">
+      <svg viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 22l-.394-1.433a2.25 2.25 0 00-1.423-1.423L13.25 19l1.433-.394a2.25 2.25 0 001.423-1.423L16.5 15.75l.394 1.433a2.25 2.25 0 001.423 1.423L19.75 19l-1.433.394a2.25 2.25 0 00-1.423 1.423z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+     </div>
+     <h2 class="service-title">إعلانات بالذكاء الاصطناعي</h2>
+     <p class="service-description">إبداع أفكار إعلانية وتنفيذها باستخدام أحدث تقنيات الذكاء الاصطناعي.</p>
+    </div>
+    <div class="service-card">
+     <div class="service-icon">
+      <svg viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197m6.75 4.461c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 01.75-.75h.75A1.875 1.875 0 0117.625 10.658z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+     </div>
+     <h2 class="service-title">تصميم جرافيك</h2>
+     <p class="service-description">تصميم بوستات، هويات بصرية، إعلانات، وعناصر مرئية بجودة احترافية.</p>
+    </div>
+    <div class="service-card">
+     <div class="service-icon">
+      <svg viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+     </div>
+     <h2 class="service-title">مونتاج وصناعة فيديوهات</h2>
+     <p class="service-description">مونتاج احترافي للأعمال التسويقية والإعلانية بجودة سينمائية.</p>
+    </div>
+    <div class="service-card">
+     <div class="service-icon">
+      <svg viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /> <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+     </div>
+     <h2 class="service-title">تصوير وإنتاج إعلانات كاملة</h2>
+     <p class="service-description">تنفيذ الإعلانات من الفكرة للتصوير والإخراج وحتى النسخة النهائية.</p>
+    </div>
+   </div>
+   <div class="cta-section"><a href="contact.html" class="cta-button" target="_blank" rel="noopener noreferrer">تواصل لبدء مشروعك</a>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_gradient_start: '#667eea',
+      background_gradient_end: '#764ba2',
+      card_background: '#ffffff',
+      primary_text_color: '#2d3748',
+      secondary_text_color: '#4a5568',
+      main_title: 'خدماتي',
+      subtitle: 'مجموعة من الخدمات الإبداعية التي أقدمها في عالم التصميم، الذكاء الاصطناعي، والإنتاج الإعلاني.',
+      service1_title: 'إعلانات بالذكاء الاصطناعي',
+      service1_description: 'إبداع أفكار إعلانية وتنفيذها باستخدام أحدث تقنيات الذكاء الاصطناعي.',
+      service2_title: 'تصميم جرافيك',
+      service2_description: 'تصميم بوستات، هويات بصرية، إعلانات، وعناصر مرئية بجودة احترافية.',
+      service3_title: 'مونتاج وصناعة فيديوهات',
+      service3_description: 'مونتاج احترافي للأعمال التسويقية والإعلانية بجودة سينمائية.',
+      service4_title: 'تصوير وإنتاج إعلانات كاملة',
+      service4_description: 'تنفيذ الإعلانات من الفكرة للتصوير والإخراج وحتى النسخة النهائية.',
+      cta_button_text: 'تواصل لبدء مشروعك',
+      font_family: 'Segoe UI',
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const baseFontSize = config.font_size || defaultConfig.font_size;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Tahoma, Geneva, Verdana, sans-serif';
+
+      document.body.style.background = `linear-gradient(135deg, ${config.background_gradient_start || defaultConfig.background_gradient_start} 0%, ${config.background_gradient_end || defaultConfig.background_gradient_end} 100%)`;
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      document.querySelector('.main-title').textContent = config.main_title || defaultConfig.main_title;
+      document.querySelector('.main-title').style.fontSize = `${baseFontSize * 3.5}px`;
+      document.querySelector('.main-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      document.querySelector('.subtitle').textContent = config.subtitle || defaultConfig.subtitle;
+      document.querySelector('.subtitle').style.fontSize = `${baseFontSize * 1.25}px`;
+      document.querySelector('.subtitle').style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach(card => {
+        card.style.background = config.card_background || defaultConfig.card_background;
+      });
+
+      const serviceTitles = document.querySelectorAll('.service-title');
+      serviceTitles[0].textContent = config.service1_title || defaultConfig.service1_title;
+      serviceTitles[1].textContent = config.service2_title || defaultConfig.service2_title;
+      serviceTitles[2].textContent = config.service3_title || defaultConfig.service3_title;
+      serviceTitles[3].textContent = config.service4_title || defaultConfig.service4_title;
+      
+      serviceTitles.forEach(title => {
+        title.style.color = config.primary_text_color || defaultConfig.primary_text_color;
+        title.style.fontSize = `${baseFontSize * 1.625}px`;
+        title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      });
+
+      const serviceDescriptions = document.querySelectorAll('.service-description');
+      serviceDescriptions[0].textContent = config.service1_description || defaultConfig.service1_description;
+      serviceDescriptions[1].textContent = config.service2_description || defaultConfig.service2_description;
+      serviceDescriptions[2].textContent = config.service3_description || defaultConfig.service3_description;
+      serviceDescriptions[3].textContent = config.service4_description || defaultConfig.service4_description;
+      
+      serviceDescriptions.forEach(desc => {
+        desc.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+        desc.style.fontSize = `${baseFontSize * 1.0625}px`;
+        desc.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      });
+
+      const ctaButton = document.querySelector('.cta-button');
+      ctaButton.textContent = config.cta_button_text || defaultConfig.cta_button_text;
+      ctaButton.style.fontSize = `${baseFontSize * 1.25}px`;
+      ctaButton.style.fontFamily = `${customFont}, ${baseFontStack}`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_gradient_start || defaultConfig.background_gradient_start,
+            set: (value) => {
+              config.background_gradient_start = value;
+              window.elementSdk.setConfig({ background_gradient_start: value });
+            }
+          },
+          {
+            get: () => config.background_gradient_end || defaultConfig.background_gradient_end,
+            set: (value) => {
+              config.background_gradient_end = value;
+              window.elementSdk.setConfig({ background_gradient_end: value });
+            }
+          },
+          {
+            get: () => config.card_background || defaultConfig.card_background,
+            set: (value) => {
+              config.card_background = value;
+              window.elementSdk.setConfig({ card_background: value });
+            }
+          },
+          {
+            get: () => config.primary_text_color || defaultConfig.primary_text_color,
+            set: (value) => {
+              config.primary_text_color = value;
+              window.elementSdk.setConfig({ primary_text_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_text_color || defaultConfig.secondary_text_color,
+            set: (value) => {
+              config.secondary_text_color = value;
+              window.elementSdk.setConfig({ secondary_text_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['main_title', config.main_title || defaultConfig.main_title],
+        ['subtitle', config.subtitle || defaultConfig.subtitle],
+        ['service1_title', config.service1_title || defaultConfig.service1_title],
+        ['service1_description', config.service1_description || defaultConfig.service1_description],
+        ['service2_title', config.service2_title || defaultConfig.service2_title],
+        ['service2_description', config.service2_description || defaultConfig.service2_description],
+        ['service3_title', config.service3_title || defaultConfig.service3_title],
+        ['service3_description', config.service3_description || defaultConfig.service3_description],
+        ['service4_title', config.service4_title || defaultConfig.service4_title],
+        ['service4_description', config.service4_description || defaultConfig.service4_description],
+        ['cta_button_text', config.cta_button_text || defaultConfig.cta_button_text]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a69127c172d18ec',t:'MTc2NDQ5MjM2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
